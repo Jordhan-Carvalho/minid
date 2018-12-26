@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+
+
+<div class="container">
+	<div class="row ">
+		
+		<div class="col-md-8">
+			<h1 class="text-center"><%= user.firstName + " " + user.lastName %></h1>
+			<div class="thumbnail text-center">
+				<% if (user.avatar) { %>
+				<img width="200" height="200" src="<%= user.avatar %>" alt="user profile image" class="img-thumbnail">
+				<% } else { %>
+				<img width="200" height="200" src="http://www.jdevoto.cl/web/wp-content/uploads/2018/04/default-user-img.jpg" alt="user profile image" class="img-thumbnail">
+				<% } %>
+			</div>
+			<div class="caption">
+				<p>E-mail: <a href="mailto:<%= user.email %>"><%= user.email %></a></p>
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+			<h3>Minerais criados por <%= user.username%>:</h3>
+			<ul>
+				<% minerais.forEach(function(mineral) { %>
+				<li><a href="/minerais/<%= mineral.id %>"><%= mineral.name %></a></li>
+				<% }); %>
+			</ul>
+		</div>
+		
+	</div>
+</div>
+
+
+ <% include ../partials/footer.ejs %>

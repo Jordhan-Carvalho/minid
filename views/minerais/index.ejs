@@ -1,0 +1,80 @@
+<% include ../partials/header.ejs %>
+
+
+
+<div class="container-fluid">
+    
+    <div class="jumbotron text-center">
+        <h1>Banco de dados Mineral.</h1>
+        <p>Contribua adicionando um novo mineral para a lista!</p>
+        <a href="/contribuir/guia" class="btn btn-primary btn-lg"><i class="fas fa-book"></i> Guia Contribuição</a>
+    </div>
+
+   <div class="row text-center">
+        <% for (var i = 0; i<lista.length; i++) { %>
+         
+        <div class="col-sm-6 col-md-2">
+            <div class="card border-secondary mb-3">
+                <img class="card-img-top img-thumbnail img-index" src="<%=lista[i].image%>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><%=lista[i].name%></h5>
+                    <p class="card-text"><i class="fas fa-atom"></i> <%= lista[i].formula %></p>
+                    <p> <%=lista[i].mineralclass %></p>
+                    <p style="font-size:15px;"  class="card-text"><em>Criado por: <a href="/users/<%=lista[i].author.id%>"><%= lista[i].author.username%></a> <%= moment(lista[i].createdAt).fromNow() %></em></p>
+                    <a href="/minerais/<%= lista[i]._id %>" class="btn btn-primary">Mais informações</a>
+                 </div>
+             </div>
+        </div>
+        <% }; %>
+    </div>
+   
+   <nav aria-label="Page navigation">
+    <% if (pages && pages > 0) { %>
+    <ul class="pagination justify-content-center">
+        <% if (current == 1) { %>
+        <li class="page-item disabled"><a class="page-link">Primeira</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/minerais">Primeira</a></li>
+        <% } %>
+ 
+        <% if (current == 1) { %>
+        <li class="page-item disabled"><a class="page-link">«</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/minerais?page=<%= Number(current) - 1 %>">«</a></li>
+        <% } %>
+ 
+        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        <% if (i !== 1) { %>
+        <li class="page-item disabled"><a class="page-link">...</a></li>
+        <% } %>
+        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+        <% if (i == current) { %>
+        <li class="active"><a class="page-link"><%= i %></a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/minerais?page=<%= i %>"><%= i %></a></li>
+        <% } %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
+        <li class="page-item disabled"><a class="page-link">...</a></li>
+        <% } %>
+        <% } %>
+ 
+        <% if (current == pages) { %>
+        <li class="page-item disabled"><a class="page-link">»</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/minerais?page=<%= Number(current) + 1 %>">»</a></li>
+        <% } %>
+ 
+        <% if (current == pages) { %>
+        <li class="page-item disabled"><a class="page-link">Última</a></li>
+        <% } else { %>
+        <li><a class="page-link" href="/minerais?page=<%= pages %>">Última</a></li>
+        <% } %>
+    </ul>
+    <% } %>
+</nav>
+
+</div>
+
+
+
+<% include ../partials/footer.ejs %>

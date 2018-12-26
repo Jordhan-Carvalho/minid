@@ -1,0 +1,124 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8" style="margin: 0 auto;">
+            <h1 style="margin-bottom:30px; margin-top:20px;">Identificar mineral</h1>
+            <form action="/identificar/resultados" method="POST">
+                <hr>
+                <h4>Luz plano polarizada</h4>
+                <hr>
+                <div class="form-group">
+                    <label for="formControlColor">Cor</label>
+                    <select class="form-control" id="formControlColor" name="color" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Incolor</option>
+                      <option>Verde</option>
+                      <option>Amarelo</option>
+                      <option>Vermelho</option>
+                      <option>Azul</option>
+                      <option>Laranja</option>
+                      <option>Violeta</option>
+                      <option>Rosa</option>
+                      <option>Cinza</option>
+                      <option>Marrom</option>
+                      <option>Vermelho-arroxeado</option>
+                      <option>Vermelho-alaranjado</option>
+                      <option>Amarelo-esverdeado</option>
+                      <option>Amarelo-alaranjado</option>
+                      <option>Azul-arroxeado</option>
+                      <option>Azul-esverdeado</option>
+                    </select>
+                </div>
+                <img class="img-fluid" src="https://static.todamateria.com.br/upload/co/re/cores_complementares_480.jpg">
+                <p style="font-size:10px;">Círculo Cromático</p>
+                <div class="form-group">
+                    <label for="formControlPleo">Pleocroísmo</label>
+                    <select class="form-control" id="formControlPleo" name="pleochroism">
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Ausente</option>
+                      <option>Fraca intensidade</option>
+                      <option>Forte intensidade</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlRelief">Relevo   </label><a href="#" class="linkrelevo">   <i class="fas fa-exclamation-circle">Dica</i></a>
+                    <select class="form-control" id="formControlRelief" name="relief">
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Baixo positivo (+)</option>
+                      <option>Moderado positivo (+)</option>
+                      <option>Alto positivo (+)</option>
+                      <option>Muito alto positivo (+)</option>
+                      <option>Baixo negativo (-)</option>
+                      <option>Moderado negativo (-)</option>
+                      <option>Alto negativo (-)</option>
+                      <option>Muito alto negativo (-)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlHabit">Hábito</label>
+                    <select class="form-control" id="formControlHabit" name="habit">
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Amorfo</option>
+                      <option>Tabular</option>
+                      <option>Prismático</option>
+                      <option>Acicular</option>
+                      <option>Equidimensional</option>
+                      <option>Granular</option>
+                      <option>Lamelar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlCle">Clivagem</label>
+                    <select class="form-control" id="formControlCle" name="cleavage" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Ausente</option>
+                      <option>Uma direção (perfeita)</option>
+                      <option>Uma direção (boa)</option>
+                      <option>Uma direção (irregular)</option>
+                      <option>Duas direções (perfeita)</option>
+                      <option>Duas direções (boa)</option>
+                      <option>Duas direções (iregular)</option>
+                      <option>Três direções (perfeita)</option>
+                      <option>Três direções (boa)</option>
+                      <option>Três direções (irregular)</option>
+                    </select>
+                </div>
+                <hr>
+                <h4>Luz polarizada cruzada</h4>
+                <hr>
+                <p>Birrefringência <a href="http://www.rc.unesp.br/igce/petrologia/nardy/birrefring.html" target="_blank">   <i class="fas fa-exclamation-circle">Dica</i></a></p>
+                <div class="form-group">
+                    <input class="form-control" type="number" step=".001" placeholder="Valor" name="birefringence" required> 
+                </div>
+                <div class="form-group">
+                    <label for="formControlEx">Extinção</label> <a href=" http://www.rc.unesp.br/igce/petrologia/nardy/extincao.html" target="_blank">   <i class="fas fa-exclamation-circle">Dica</i></a>
+                    <select class="form-control" id="formControlEx" name="extinction">
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Parelala</option>
+                      <option>Oblíqua</option>
+                      <option>Simétrica</option>
+                      <option>Paralela e simétrica</option>
+                      <option>Indeterminada</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlElong">Caráter e sinal  ótico</label><a href="#" class="linkcarater">   <i class="fas fa-exclamation-circle">Dica</i></a> 
+                    <select class="form-control" id="formControlElong" name="signofelongation">
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option>Uniaxial (+)</option>
+                      <option>Uniaxial (-)</option>
+                      <option>Biaxial (+)</option>
+                      <option>Biaxial (-)</option>
+                    </select>
+                </div>
+        </div>
+        <div class="form-group " style="width:45%; margin: 0 auto;">
+            <button class="btn btn-primary btn-block">Enviar!</button>
+        </div>    
+            </form>
+    </div>
+</div>   
+        
+<% include ../partials/footer.ejs %>
+    

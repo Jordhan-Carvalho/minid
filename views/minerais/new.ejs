@@ -1,0 +1,342 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+<div class="row">
+    <div class="col-sm-12 col-md-8" style="margin: 0 auto;">
+        <h1 style="margin-bottom:30px; margin-top:20px;">Novo mineral</h1>
+        <form action="/minerais" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Nome" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Foto Macro</label><br>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Link Foto micro PPL" name="image2">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Link Foto micro XPL" name="image3">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Fórmula" name="formula" required>
+            </div>
+            <div class="form-group">
+                <label for="formControlmClass">Classe mineral</label>
+                <select class="form-control" id="formControlmClass" name="mineralclass" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>  
+                  <option>Óxidos</option>
+                  <option>Carbonatos</option>
+                  <option>Silicatos</option>
+                  <option>Sulfetos</option>
+                  <option>Sulfatos</option>
+                </select>
+            </div>
+            <hr>
+            <h4>Propriedades Macroscopicas</h4>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Cor/Cores" name="macro[color]" required>
+            </div>
+             <div class="form-group">
+                <input class="form-control" type="text" placeholder="Brilho" name="macro[luster]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" step=".1" placeholder="Dureza" name="macro[hardness]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" step=".01" placeholder="Densidade" name="macro[density]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Traço" name="macro[streak]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Fratura" name="macro[fracture]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Tenacidade" name="macro[tenacity]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Sistema Cristalino" name="macro[system]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Clivagem" name="macro[cleavage]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Hábito" name="macro[habit]" required>
+            </div>
+            <hr>
+            <h4>Propriedades Microscopicas</h4>
+            <p><strong>Luz plano polarizada</strong></p>
+            <div class="form-group">
+                <label for="formControlColor">Cor</label>
+                <select class="form-control" id="formControlColor" name="planelight[color]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>
+                  <option>Incolor</option>
+                  <option>Verde</option>
+                  <option>Amarelo</option>
+                  <option>Vermelho</option>
+                  <option>Azul</option>
+                  <option>Laranja</option>
+                  <option>Violeta</option>
+                  <option>Rosa</option>
+                  <option>Cinza</option>
+                  <option>Marrom</option>
+                  <option>Vermelho-arroxeado</option>
+                  <option>Vermelho-alaranjado</option>
+                  <option>Amarelo-esverdeado</option>
+                  <option>Amarelo-alaranjado</option>
+                  <option>Azul-arroxeado</option>
+                  <option>Azul-esverdeado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlColor2">Cor</label>
+                <select class="form-control" id="formControlColor2" name="planelight[color]">
+                  <option disabled selected value> -- selecione uma opção (NÃO OBRIGATORIO) -- </option>
+                  <option>Incolor</option>
+                  <option>Verde</option>
+                  <option>Amarelo</option>
+                  <option>Vermelho</option>
+                  <option>Azul</option>
+                  <option>Laranja</option>
+                  <option>Violeta</option>
+                  <option>Rosa</option>
+                  <option>Cinza</option>
+                  <option>Marrom</option>
+                  <option>Vermelho-arroxeado</option>
+                  <option>Vermelho-alaranjado</option>
+                  <option>Amarelo-esverdeado</option>
+                  <option>Amarelo-alaranjado</option>
+                  <option>Azul-arroxeado</option>
+                  <option>Azul-esverdeado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlColor3">Cor</label>
+                <select class="form-control" id="formControlColor3" name="planelight[color]">
+                  <option disabled selected value> -- selecione uma opção (NÃO OBRIGATORIO) -- </option>
+                  <option>Incolor</option>
+                  <option>Verde</option>
+                  <option>Amarelo</option>
+                  <option>Vermelho</option>
+                  <option>Azul</option>
+                  <option>Laranja</option>
+                  <option>Violeta</option>
+                  <option>Rosa</option>
+                  <option>Cinza</option>
+                  <option>Marrom</option>
+                  <option>Vermelho-arroxeado</option>
+                  <option>Vermelho-alaranjado</option>
+                  <option>Amarelo-esverdeado</option>
+                  <option>Amarelo-alaranjado</option>
+                  <option>Azul-arroxeado</option>
+                  <option>Azul-esverdeado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlColor4">Cor</label>
+                <select class="form-control" id="formControlColor4" name="planelight[color]">
+                  <option disabled selected value> -- selecione uma opção (NÃO OBRIGATORIO) -- </option>
+                  <option>Incolor</option>
+                  <option>Verde</option>
+                  <option>Amarelo</option>
+                  <option>Vermelho</option>
+                  <option>Azul</option>
+                  <option>Laranja</option>
+                  <option>Violeta</option>
+                  <option>Rosa</option>
+                  <option>Cinza</option>
+                  <option>Marrom</option>
+                  <option>Vermelho-arroxeado</option>
+                  <option>Vermelho-alaranjado</option>
+                  <option>Amarelo-esverdeado</option>
+                  <option>Amarelo-alaranjado</option>
+                  <option>Azul-arroxeado</option>
+                  <option>Azul-esverdeado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlColor5">Cor</label>
+                <select class="form-control" id="formControlColor5" name="planelight[color]">
+                  <option disabled selected value> -- selecione uma opção (NÃO OBRIGATORIO) -- </option>
+                  <option>Incolor</option>
+                  <option>Verde</option>
+                  <option>Amarelo</option>
+                  <option>Vermelho</option>
+                  <option>Azul</option>
+                  <option>Laranja</option>
+                  <option>Violeta</option>
+                  <option>Rosa</option>
+                  <option>Cinza</option>
+                  <option>Marrom</option>
+                  <option>Vermelho-arroxeado</option>
+                  <option>Vermelho-alaranjado</option>
+                  <option>Amarelo-esverdeado</option>
+                  <option>Amarelo-alaranjado</option>
+                  <option>Azul-arroxeado</option>
+                  <option>Azul-esverdeado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlPleo">Pleocroísmo</label>
+                <select class="form-control" id="formControlPleo" name="planelight[pleochroism]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>  
+                  <option>Ausente</option>
+                  <option>Fraca intensidade</option>
+                  <option>Forte intensidade</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="formControlRelief">Relevo</label>
+                <select class="form-control" id="formControlRelief" name="planelight[relief]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>
+                  <option>Baixo positivo (+)</option>
+                  <option>Moderado positivo (+)</option>
+                  <option>Alto positivo (+)</option>
+                  <option>Muito alto positivo (+)</option>
+                  <option>Baixo negativo (-)</option>
+                  <option>Moderado negativo (-)</option>
+                  <option>Alto negativo (-)</option>
+                  <option>Muito alto negativo (-)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlHabit">Hábito</label>
+                <select class="form-control" id="formControlHabit" name="planelight[habit]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>
+                  <option>Amorfo</option>
+                  <option>Tabular</option>
+                  <option>Prismático</option>
+                  <option>Acicular</option>
+                  <option>Equidimensional</option>
+                  <option>Granular</option>
+                  <option>Lamelar</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formControlCle">Clivagem</label>
+                <select class="form-control" id="formControlCle" name="planelight[cleavage]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>
+                  <option>Ausente</option>
+                  <option>Uma direção (perfeita)</option>
+                  <option>Uma direção (boa)</option>
+                  <option>Uma direção (irregular)</option>
+                  <option>Duas direções (perfeita)</option>
+                  <option>Duas direções (boa)</option>
+                  <option>Duas direções (iregular)</option>
+                  <option>Três direções (perfeita)</option>
+                  <option>Três direções (boa)</option>
+                  <option>Três direções (irregular)</option>
+                </select>
+            </div>
+            <hr>
+            <p><strong>Luz polarizada cruzada</strong><p>
+            <p>Birrefringência</p>
+        <div class="row">
+            <div style="margin-left:10px;" class="form-group  col-xs-6">
+                <input class="form-control" id="birelab" type="number" step=".001" placeholder="Valor mínimo" name="crossedlight[birefringence]" required> 
+            </div>
+             <p style="margin-top:13px;">- à -</p>
+            <div class="form-group  col-xs-6">
+                <input class="form-control" type="number" step=".001" placeholder="Valor máximo" name="crossedlight[birefringence]" required>
+            </div>
+        </div>    
+            <div class="form-group">
+                <label for="formControlEx">Extinção</label>
+                <select class="form-control" id="formControlEx" name="crossedlight[extinction]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>
+                  <option>Parelala</option>
+                  <option>Oblíqua</option>
+                  <option>Simétrica</option>
+                  <option>Paralela e simétrica</option>
+                  <option>Indeterminada</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="formControlElong">Caráter e sinal  ótico</label>
+                <select class="form-control" id="formControlElong" name="crossedlight[signofelongation]" required>
+                  <option disabled selected value> -- selecione uma opção -- </option>
+                  <option>Uniaxial (+)</option>
+                  <option>Uniaxial (-)</option>
+                  <option>Biaxial (+)</option>
+                  <option>Biaxial (-)</option>
+                </select>
+            </div>
+            <hr>
+            <h4 class="text-center">Informações Gerais</h4>
+            <div class="form-group" >
+                <label for="formControlTextareaAsso">Minerais associados</label>
+                <textarea class="form-control rounded-0" id="formControlTextareaAsso" rows="3" name="associatemineral" required></textarea>
+            </div>
+            <div class="form-group" >
+                <label for="formControlTextareaDistin">Propriedades Diagnósticas</label>
+                <textarea class="form-control rounded-0" id="formControlTextareaDistin" rows="3" name="distinfeat" required></textarea>
+            </div>
+            <div class="form-group" >
+                <label for="formControlTextareaDesc">Gênese e informações complementares</label>
+                <textarea class="form-control rounded-0" id="formControlTextareaDesc" rows="8" name="description" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="formControlTextareaVid1">Vídeo no Youtube de Microscopia (Playlist)</label>
+                <textarea placeholder="Nome do Canal" class="form-control rounded-0" id="formControlTextareaVid1" rows="1" name="video[name]"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Link do Canal" class="form-control rounded-0" rows="1" name="video[clink]" ></textarea>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="ID da playlist" class="form-control rounded-0" rows="1" name="video[link]" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="formControlTextareaRef">Referência</label>
+                <textarea placeholder="Nome da Referência" class="form-control rounded-0" id="formControlTextareaRef" rows="1" name="reference[name]" required></textarea>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Link da Referência" class="form-control rounded-0"  rows="1" name="reference[link]" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="formControlTextareaRef2">Referências <strong>Não Obrigatórias</strong></label>
+                <textarea  placeholder="Nome da Referência" class="form-control rounded-0" id="formControlTextareaRef2" rows="1" name="reference[name]" ></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <textarea  placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <textarea  placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <textarea  placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <textarea  placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
+            </div>
+            <div class="form-group " style="width:45%; margin: 0 auto;">
+                <button class="btn btn-primary btn-block">Enviar!</button>
+            </div>    
+        </form>
+        <a href="/minerais">Voltar</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

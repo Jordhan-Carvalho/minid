@@ -1,0 +1,84 @@
+<% include ../partials/header.ejs %>
+
+
+<!--Start Algh-->
+<% var result = 0; %>
+<% var arrayResult = []; %>
+
+<% for (var i = 0; i<lista.length; i++) { %>
+<%var obj = { }; %>
+<% if (lista[i].planelight.color.indexOf(searchMineral.color) >= 0) { %>
+<% result += lista[i].pmicro.pcol; %> 
+<%  } if ( searchMineral.pleochroism==lista[i].planelight.pleochroism) { %>
+<% result += lista[i].pmicro.pple; %>
+<%  } if ( searchMineral.relief==lista[i].planelight.relief) { %>
+<% result += lista[i].pmicro.prel; %>
+<% } if (searchMineral.habit==lista[i].planelight.habit) { %>
+<% result += lista[i].pmicro.phab;%>
+<% } if (searchMineral.cleavage==lista[i].planelight.cleavage) { %>
+<% result += lista[i].pmicro.pcle;%>
+<!--XPL-->
+<% } if (searchMineral.birefringence>=lista[i].crossedlight.birefringence[0] && searchMineral.birefringence<=lista[i].crossedlight.birefringence[1]) { %>
+<% result += lista[i].pmicro.pbir;%>
+<% } if (searchMineral.extinction==lista[i].crossedlight.extinction) { %>
+<% result += lista[i].pmicro.pext;%>
+<% } if (searchMineral.signofelongation==lista[i].crossedlight.signofelongation) { %>
+<% result += lista[i].pmicro.psig;%>
+<% } else { %>
+<% } %>
+<!--% result shown-->
+<% if (result >= 0.00) {%>
+<% obj.percent = result; %>
+<% obj.min = lista[i] %>
+<% arrayResult.push(obj) %>
+<% } else { %>
+<% }%>
+<% result = 0; %>
+<% } %>
+
+<!--Sort an Array of Objects-->
+<% function compare(a, b) {%>
+ <%  const percentA = a.percent; %>
+<%   const percentB = b.percent; %>
+<%   let comparison = 0 ;%>
+<%   if (percentA > percentB) { %>
+<%    comparison = 1;%>
+ <%  } else if (percentA < percentB) { %>
+ <%    comparison = -1; %>
+<%   } %>
+<%   return comparison* -1 ; %>
+<% } %>
+<!--end func -->
+
+<% arrayResult.sort(compare); %>
+<!--End Algorit-->
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <h1>RESULTADOS DA IDENTIFICAÇÃO</h1>
+            <div class="row">
+                <% for (var i = 0; i<arrayResult.length; i++) { %>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card border-secondary mb-3">
+                        <img class="card-img-top img-thumbnail img-index" src="<%=arrayResult[i].min.image%>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"> <strong><%=arrayResult[i].min.name%></strong></h5>
+                            <p class="card-text">Probabilidade:<%= Math.round(arrayResult[i].percent*100) %>%</p>
+                            <a href="/minerais/<%= arrayResult[i].min._id %>" class="btn btn-primary">Mais informações</a>
+                        </div>
+                  </div>
+              </div>
+                <% }; %>
+            </div>
+         </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <hr>
+            <a href="/identificar" class="btn btn-primary">Nova identificação</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

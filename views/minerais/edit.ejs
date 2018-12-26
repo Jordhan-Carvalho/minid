@@ -1,0 +1,379 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8" style="margin: 0 auto;">
+            <h1 style="margin-bottom:30px; margin-top:20px;">Editar <%= mineral.name %></h1>
+            <form action="/minerais/<%= mineral._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.name%>" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Foto principal</label><br>
+                    <input type="file" id="image" name="image" accept="image/*" value="<%= mineral.image%>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.image2%>" name="image2">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.image3%>" name="image3">
+                </div>
+                 <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.formula%>" name="formula" required>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmClass">Classe mineral</label>
+                    <select class="form-control" id="formControlmClass" name="mineralclass" required>
+                      <option value="<%= mineral.mineralclass %>" selected="selected"><%= mineral.mineralclass %></option>  
+                      <option>Óxidos</option>
+                      <option>Carbonatos</option>
+                      <option>Silicatos</option>
+                      <option>Sulfetos</option>
+                      <option>Sulfatos</option>
+                    </select>
+                </div>
+                <hr>
+                <h4>Propriedades Macroscopicas</h4>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.color%>" name="macro[color]" required>
+                </div>
+                 <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.luster%>" name="macro[luster]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" step=".1" value="<%= mineral.macro.hardness%>" name="macro[hardness]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" step=".01" value="<%= mineral.macro.density%>" name="macro[density]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.streak%>" name="macro[streak]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.fracture%>" name="macro[fracture]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.tenacity%>" name="macro[tenacity]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.system%>" name="macro[system]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.cleavage%>" name="macro[cleavage]" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= mineral.macro.habit%>" name="macro[habit]" required>
+                </div>
+                <hr>
+                <h4>Propriedades Microscopicas</h4>
+                <p><strong>Luz plano polarizada</strong></p>
+                <div class="form-group">
+                    <label for="formControlColor">Cor</label>
+                    <select class="form-control" id="formControlColor" name="planelight[color]" required>
+                      <option value="<%= mineral.planelight.color[0] %>" selected="selected"><%= mineral.planelight.color[0] %></option>
+                      <option>Incolor</option>
+                      <option>Verde</option>
+                      <option>Amarelo</option>
+                      <option>Vermelho</option>
+                      <option>Azul</option>
+                      <option>Laranja</option>
+                      <option>Violeta</option>
+                      <option>Rosa</option>
+                      <option>Cinza</option>
+                      <option>Marrom</option>
+                      <option>Vermelho-arroxeado</option>
+                      <option>Vermelho-alaranjado</option>
+                      <option>Amarelo-esverdeado</option>
+                      <option>Amarelo-alaranjado</option>
+                      <option>Azul-arroxeado</option>
+                      <option>Azul-esverdeado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlColor2">Cor (NAO OBRIGATÓRIO)</label>
+                    <select class="form-control" id="formControlColor2" name="planelight[color]">
+                      <option value="<%= mineral.planelight.color[1] %>" selected="selected"><%= mineral.planelight.color[1] %></option>
+                      <option>Incolor</option>
+                      <option>Verde</option>
+                      <option>Amarelo</option>
+                      <option>Vermelho</option>
+                      <option>Azul</option>
+                      <option>Laranja</option>
+                      <option>Violeta</option>
+                      <option>Rosa</option>
+                      <option>Cinza</option>
+                      <option>Marrom</option>
+                      <option>Vermelho-arroxeado</option>
+                      <option>Vermelho-alaranjado</option>
+                      <option>Amarelo-esverdeado</option>
+                      <option>Amarelo-alaranjado</option>
+                      <option>Azul-arroxeado</option>
+                      <option>Azul-esverdeado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlColor3">Cor (NAO OBRIGATÓRIO)</label>
+                    <select class="form-control" id="formControlColor3" name="planelight[color]">
+                      <option value="<%= mineral.planelight.color[2] %>" selected="selected"><%= mineral.planelight.color[2] %></option>
+                      <option>Incolor</option>
+                      <option>Verde</option>
+                      <option>Amarelo</option>
+                      <option>Vermelho</option>
+                      <option>Azul</option>
+                      <option>Laranja</option>
+                      <option>Violeta</option>
+                      <option>Rosa</option>
+                      <option>Cinza</option>
+                      <option>Marrom</option>
+                      <option>Vermelho-arroxeado</option>
+                      <option>Vermelho-alaranjado</option>
+                      <option>Amarelo-esverdeado</option>
+                      <option>Amarelo-alaranjado</option>
+                      <option>Azul-arroxeado</option>
+                      <option>Azul-esverdeado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlColor4">Cor (NAO OBRIGATÓRIO)</label>
+                    <select class="form-control" id="formControlColor4" name="planelight[color]">
+                      <option value="<%= mineral.planelight.color[3] %>" selected="selected"><%= mineral.planelight.color[3] %></option>
+                      <option>Incolor</option>
+                      <option>Verde</option>
+                      <option>Amarelo</option>
+                      <option>Vermelho</option>
+                      <option>Azul</option>
+                      <option>Laranja</option>
+                      <option>Violeta</option>
+                      <option>Rosa</option>
+                      <option>Cinza</option>
+                      <option>Marrom</option>
+                      <option>Vermelho-arroxeado</option>
+                      <option>Vermelho-alaranjado</option>
+                      <option>Amarelo-esverdeado</option>
+                      <option>Amarelo-alaranjado</option>
+                      <option>Azul-arroxeado</option>
+                      <option>Azul-esverdeado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlColor5">Cor (NAO OBRIGATÓRIO)</label>
+                    <select class="form-control" id="formControlColor5" name="planelight[color]">
+                      <option value="<%= mineral.planelight.color[4] %>" selected="selected"><%= mineral.planelight.color[4] %></option>
+                      <option>Incolor</option>
+                      <option>Verde</option>
+                      <option>Amarelo</option>
+                      <option>Vermelho</option>
+                      <option>Azul</option>
+                      <option>Laranja</option>
+                      <option>Violeta</option>
+                      <option>Rosa</option>
+                      <option>Cinza</option>
+                      <option>Marrom</option>
+                      <option>Vermelho-arroxeado</option>
+                      <option>Vermelho-alaranjado</option>
+                      <option>Amarelo-esverdeado</option>
+                      <option>Amarelo-alaranjado</option>
+                      <option>Azul-arroxeado</option>
+                      <option>Azul-esverdeado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlPleo">Pleocroísmo</label>
+                    <select class="form-control" id="formControlPleo" name="planelight[pleochroism]" required>
+                      <option value="<%= mineral.planelight.pleochroism %>" selected="selected"><%= mineral.planelight.pleochroism %></option>
+                      <option>Ausente</option>
+                      <option>Fraca intensidade</option>
+                      <option>Forte intensidade</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="formControlRelief">Relevo</label>
+                    <select class="form-control" id="formControlRelief" name="planelight[relief]" required>
+                      <option value="<%= mineral.planelight.relief %>" selected="selected"><%= mineral.planelight.relief %></option>
+                      <option>Baixo positivo (+)</option>
+                      <option>Moderado positivo (+)</option>
+                      <option>Alto positivo (+)</option>
+                      <option>Muito alto positivo (+)</option>
+                      <option>Baixo negativo (-)</option>
+                      <option>Moderado negativo (-)</option>
+                      <option>Alto negativo (-)</option>
+                      <option>Muito alto negativo (-)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlHabit">Hábito</label>
+                    <select class="form-control" id="formControlHabit" name="planelight[habit]" required>
+                      <option value="<%= mineral.planelight.habit %>" selected="selected"><%= mineral.planelight.habit %></option>    
+                      <option>Amorfo</option>
+                      <option>Tabular</option>
+                      <option>Prismático</option>
+                      <option>Acicular</option>
+                      <option>Equidimensional</option>
+                      <option>Granular</option>
+                      <option>Lamelar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlCle">Clivagem</label>
+                    <select class="form-control" id="formControlCle" name="planelight[cleavage]" required>
+                      <option value="<%= mineral.planelight.cleavage %>" selected="selected"><%= mineral.planelight.cleavage %></option>
+                      <option>Ausente</option>
+                      <option>Uma direção (perfeita)</option>
+                      <option>Uma direção (boa)</option>
+                      <option>Uma direção (irregular)</option>
+                      <option>Duas direções (perfeita)</option>
+                      <option>Duas direções (boa)</option>
+                      <option>Duas direções (iregular)</option>
+                      <option>Três direções (perfeita)</option>
+                      <option>Três direções (boa)</option>
+                      <option>Três direções (irregular)</option>
+                    </select>
+                </div>
+               <hr>
+                <p><strong>Luz polarizada cruzada</strong><p>
+                <p>Birrefringência</p>
+                <div class="row">
+                    <div style="margin-left:10px;" class="form-group  col-xs-6">
+                        <input class="form-control" id="birelab" type="number" step=".001" value="<%= mineral.crossedlight.birefringence[0]%>" name="crossedlight[birefringence]" required> 
+                    </div>
+                     <p style="margin-top:13px;">- à -</p>
+                    <div class="form-group  col-xs-6">
+                        <input class="form-control" type="number" step=".001" value="<%= mineral.crossedlight.birefringence[1]%>" name="crossedlight[birefringence]" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="formControlEx">Extinção</label>
+                    <select class="form-control" id="formControlEx" name="crossedlight[extinction]" required>
+                      <option value="<%= mineral.crossedlight.extinction %>" selected="selected"><%= mineral.crossedlight.extinction %></option>
+                      <option>Parelala</option>
+                      <option>Oblíqua</option>
+                      <option>Simétrica</option>
+                      <option>Paralela e simétrica</option>
+                      <option>Indeterminada</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="formControlElong">Caráter e sinal  ótico</label>
+                    <select class="form-control" id="formControlElong" name="crossedlight[signofelongation]" required>
+                      <option value="<%= mineral.crossedlight.signofelongation %>" selected="selected"><%= mineral.crossedlight.signofelongation %></option>
+                      <option>Uniaxial (+)</option>
+                      <option>Uniaxial (-)</option>
+                      <option>Biaxial (+)</option>
+                      <option>Biaxial (-)</option>
+                    </select>
+                </div>
+                <hr>
+                <h4 class="text-center">Informações Gerais</h4>
+                <div class="form-group" >
+                    <label for="formControlTextareaAsso">Minerais associados</label>
+                    <textarea class="form-control rounded-0" id="formControlTextareaAsso" rows="3" name="associatemineral" required><%=mineral.associatemineral%></textarea>
+                </div>
+                <div class="form-group" >
+                    <label for="formControlTextareaDistin">Propriedades Diagnósticas</label>
+                    <textarea class="form-control rounded-0" id="formControlTextareaDistin" rows="3" name="distinfeat" required><%=mineral.distinfeat%></textarea>
+                </div>
+                <div class="form-group" >
+                    <label for="formControlTextareaDesc">Gênese e informações complementares</label>
+                    <textarea class="form-control rounded-0" id="formControlTextareaDesc" rows="8" name="description" required><%=mineral.description%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="formControlTextareaVid1">Playlist Microscopia</label>
+                    <textarea placeholder="Nome do Canal" class="form-control rounded-0" id="formControlTextareaVid1" rows="1" name="video[name]"> <%=mineral.video.name%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Link do Canal" class="form-control rounded-0" rows="1" name="video[clink]" ><%=mineral.video.clink%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="ID da playlist" class="form-control rounded-0" rows="1" name="video[link]" ><%=mineral.video.link%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="formControlTextareaRef">Referência</label>
+                    <textarea placeholder="Nome da Referência" class="form-control rounded-0" id="formControlTextareaRef" rows="1" name="reference[name]" required><%=mineral.reference.name[0]%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea  placeholder="Link da Referência" class="form-control rounded-0"  rows="1" name="reference[link]" required><%=mineral.reference.link[0]%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="formControlTextareaRef2">Referências Não Obrigatórias</label>
+                    <textarea  placeholder="Nome da Referência" class="form-control rounded-0" id="formControlTextareaRef2" rows="1" name="reference[name]" ><%=mineral.reference.name[1]%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Link da Referência" class="form-control rounded-0"  rows="1" name="reference[link]"><%=mineral.reference.link[1]%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <textarea placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ><%=mineral.reference.name[2]%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Link da Referência" class="form-control rounded-0"  rows="1" name="reference[link]"><%=mineral.reference.link[2]%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <textarea placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ><%=mineral.reference.name[3]%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Link da Referência" class="form-control rounded-0"  rows="1" name="reference[link]"><%=mineral.reference.link[3]%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <textarea  placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ><%=mineral.reference.name[4]%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Link da Referência"  class="form-control rounded-0" rows="1" name="reference[link]"><%=mineral.reference.link[4]%></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <textarea placeholder="Nome da Referência"  class="form-control rounded-0" rows="1" name="reference[name]" ><%=mineral.reference.name[5]%></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Link da Referência" class="form-control rounded-0"  rows="1" name="reference[link]"><%=mineral.reference.link[5]%></textarea>
+                </div>
+                <h4>PESOS DAS CARACTERÍSTICAS</h4>
+                <div class="form-group">
+                    <label for="pmicro">Peso - Cor</label>
+                    <input class="form-control" id="pmicro" type="number" step=".001" value="<%= mineral.pmicro.pcol%>" name="pmicro[pcol]" required>
+                </div>
+                <div class="form-group">
+                    <label for="pple">Peso - Pleocroísmo</label>
+                    <input class="form-control" id="pple" type="number" step=".001" value="<%= mineral.pmicro.pple%>" name="pmicro[pple]" required>
+                </div>
+                <div class="form-group">
+                    <label for="prel">Peso - Revelo</label>
+                    <input class="form-control" id="prel" type="number" step=".001" value="<%= mineral.pmicro.prel%>" name="pmicro[prel]" required>
+                </div>
+                <div class="form-group">
+                    <label for="phab">Peso - Hábito</label>
+                    <input class="form-control" id="phab" type="number" step=".001" value="<%= mineral.pmicro.phab%>" name="pmicro[phab]" required>
+                </div>
+                <div class="form-group">
+                    <label for="pcle">Peso - Clivagem</label>
+                    <input class="form-control" id="pcle" type="number" step=".001" value="<%= mineral.pmicro.pcle%>" name="pmicro[pcle]" required>
+                </div>
+                <div class="form-group">
+                    <label for="pbir">Peso - Birrefringência</label>
+                    <input class="form-control" id="pbir" type="number" step=".001" value="<%= mineral.pmicro.pbir%>" name="pmicro[pbir]" required>
+                </div>
+                <div class="form-group">
+                    <label for="pext">Peso - Extinção</label>
+                    <input class="form-control" id="pext" type="number" step=".001" value="<%= mineral.pmicro.pext%>" name="pmicro[pext]" required>
+                </div>
+                <div class="form-group">
+                    <label for="psig">Peso - Caráter e sinal ótico</label>
+                    <input class="form-control" id="psig" type="number" step=".001" value="<%= mineral.pmicro.psig%>" name="pmicro[psig]" required>
+                </div>
+                <p>Total: <%= (mineral.pmicro.psig+mineral.pmicro.pext+mineral.pmicro.pbir+mineral.pmicro.pcle+mineral.pmicro.phab+mineral.pmicro.prel+mineral.pmicro.pple+mineral.pmicro.pcol)*100 %>%</p>
+                
+                
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Enviar!</button>
+                </div>    
+            </form>
+            <a href="/minerais">Voltar</a>
+        </div>
+    </div>
+</div>
+        
+<% include ../partials/footer.ejs %>

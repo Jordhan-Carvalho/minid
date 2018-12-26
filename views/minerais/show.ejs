@@ -1,0 +1,223 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+   <div class="row">
+        <div class="col-md-4">
+                 <p class="lead">Referências e fontes externas</p>
+                 <% for (var i=0; i<mineral.reference.name.length; i++) { %>
+                    <% if (mineral.reference.name[i]) { %>
+                     <div class="list-group">
+                         <li class="list-group-item"><a target="_blank" href="<%=mineral.reference.link[i]%>"><%=mineral.reference.name[i]%></a></li>
+                     </div>
+                   <% }; %>
+                 <% }; %>
+                 <hr>
+                 <p class="lead">Lista de reprodução</p>
+                 <iframe type="text/html" width="100%" height="405" src="https://www.youtube.com/embed/?listType=playlist&list=<%=mineral.video.link%>" frameborder="0" allowfullscreen></iframe>
+                 <p>Microscopia do canal:<a target="_blank" href="<%=mineral.video.clink%>"> <%=mineral.video.name%></a></p>
+        </div>
+        <div class="col-md-8"> 
+          <div class="card">
+            <div class="component">
+                <div id="carousel" class="owl-carousel main-carousel">
+                  <div class="item">
+                    <img src="<%= mineral.image %>" alt="" class="img-cover" />
+                  </div>
+                  <div class="item">
+                    <img src="<%= mineral.image2 %>" alt="" class="img-cover" />
+                  </div>
+                  <div class="item">
+                    <img src="<%= mineral.image3 %>" alt="" class="img-cover" />
+                  </div>
+                </div>
+                <div class="thumbnails-wrapper">
+                  <div class="collapse-button">
+                    <div class="icon"></div>
+                  </div>
+                  <div class="counter">
+                    <span class="current-item"></span>/<span class="max-items"></span>
+                  </div>
+                  <div id="thumbnails" class="owl-carousel">
+                    <div class="item">
+                      <img  src="<%= mineral.image %>" alt="" class="image" />
+                    </div>
+                    <div class="item">
+                      <img  src="<%= mineral.image2 %>" alt="" class="image" />
+                    </div>
+                    <div class="item">
+                      <img  src="<%= mineral.image3 %>" alt="" class="image " />
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+              
+            <div class="card-body">
+                  <h5 class="card-title"><span><a><%=mineral.name%><a> <h5 class="float-right"><i class="fas fa-atom"></i> <%=mineral.formula%></h5></span></h5>
+                  <hr>  
+                  <p><strong>Gênese e informações complementares</strong><p>  
+                  <p class="card-text"><%= mineral.description%></p>
+                  <p><strong>Minerais associados</strong><p>  
+                  <p class="card-text"><%= mineral.associatemineral%></p>
+                  <p><strong>Propriedades Diagnósticas</strong><p>  
+                  <p class="card-text"><%= mineral.distinfeat%></p>
+                  <hr>
+                  <% if (currentUser && currentUser.isAdmin) { %>
+                      <a class="btn btn-warning btn-sm" href="/minerais/<%= mineral._id %>/edit">Editar</a>
+                      <form class="btndeletar" action="/minerais/<%=mineral._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger btn-sm">Deletar</button>
+                      </form>
+                  <% } %> 
+                  <% if (currentUser && currentUser.isAdmin) { %>
+                      <a class="btn btn-success btn-sm" href="/minerais/<%= mineral._id %>/editaprovar">Aprovar</a>
+                  <% } %>
+            </div>
+          </div>
+      <div class="card">
+        <div class="card-header text-center">
+          <h4>Caracteristicas</h4>
+          <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <i class="far fa-gem"></i> Macro
+          </button>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fas fa-microscope"></i> Micro
+          </button>
+          </p>
+        </div>
+        <div class="card-body">
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <h5><i class="far fa-gem"></i> Características macrascópicas</h5> <hr>
+              <p><strong>Cor: </strong><%= mineral.macro.color %></p>
+              <p><strong>Brilho: </strong><%= mineral.macro.luster %></p>
+              <p><strong>Dureza: </strong><%= mineral.macro.hardness %></p>
+              <p><strong>Densidade: </strong><%= mineral.macro.density %> g/cm³</p>
+              <p><strong>Traço: </strong><%= mineral.macro.streak %></p>
+              <p><strong>Fratura: </strong><%= mineral.macro.fracture %></p>
+              <p><strong>Sistema Cristalino: </strong><%= mineral.macro.system %></p>
+              <p><strong>Tenacidade: </strong><%= mineral.macro.tenacity %></p>
+              <p><strong>Clivagem: </strong><%= mineral.macro.cleavage %></p>
+              <p><strong>Hábito: </strong><%= mineral.macro.habit %></p>
+            </div>
+          </div>
+          <div class="collapse" id="collapseExample2">
+            <div class="card card-body">
+            <h5><i class="fas fa-microscope"></i> Características microscópicas</h5> <hr>
+            <p><strong>Cor: </strong>
+            <% for (var i =0; i<mineral.planelight.color.length; i++) { %>
+             <% if (mineral.planelight.color[i]) { %>
+              <%= mineral.planelight.color[i] %> ,
+              <% }; %>
+              <% }; %>
+              </p>
+              <p><strong>Pleocroísmo: </strong><%= mineral.planelight.pleochroism %></p>
+              <p><strong>Relevo: </strong><%= mineral.planelight.relief %></p>
+              <p><strong>Hábito: </strong><%= mineral.planelight.habit %></p>
+              <p><strong>Clivagem: </strong><%= mineral.planelight.cleavage %></p>
+              <p><strong>Birrefrigência: </strong><%= mineral.crossedlight.birefringence[0] %> à <%= mineral.crossedlight.birefringence[1]%></p>
+              <p><strong>Extinção: </strong><%= mineral.crossedlight.extinction %></p>
+              <p><strong>Caráter e sinal ótico: </strong><%= mineral.crossedlight.signofelongation %></p>
+            </div>
+          </div>
+          <p class="card-text text-center" ><em>Criado por: <a href="/users/<%=mineral.author.id%>"><%= mineral.author.username%></a> <%= moment(mineral.createdAt).fromNow() %></em></p>  
+        </div>
+      </div>
+      <hr>    
+            
+           <!--COMMENT SECTION START-->
+      <div class="card container" >
+            <!--Setting up the add new comment button that is used for collapsing-->
+            <div class="card-header text-right">
+              <a class="btn btn-primary pull-right" role="button" data-toggle="collapse" href="#collapseExampleCom" aria-expanded="false" aria-controls="collapseComment">
+                <span class="fa fa-plus-square" aria-hidden="true"></span> Adicionar novo comentário</a>
+            </div>
+            <!--Comment section title-->
+            <h4><strong>Comentários <span class="fa fa-comments" aria-hidden="true"></span></strong></h4>
+            <!--Collapse Add a comment form START-->
+            <div class="collapse" id="collapseExampleCom">
+            <div class="card card-body" style="border-left: 5px solid #00C851;">
+                  <% if(!currentUser) { %>
+                <!--If the user is not logged in, direct him to the login page-->
+                <h5>Voce precisa estar logado para comentar. <a href="/login">Clique aqui</a>para logar.</h5>
+                  <% } %>
+                  <% if(currentUser) { %>
+                <!--If the user is logged in, show the new comment form-->
+                <h4>Digite seu comentário <span class="fa fa-pencil-alt" aria-hidden="true"></span></h4>
+                <form id="add-comment-form" action="/minerais/<%= mineral._id %>/comments" method="POST">
+                  <div class="form-group">
+                    <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" name="comment[text]" placeholder="Digite seu comentário..." form="add-comment-form" rows="5" cols="70"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-success btn-sm">Comentar <span class="fa fa-comments" aria-hidden="true"></span></button>
+                  </div>
+                </form>
+                  <% } %>
+              </div>
+              </div>
+              <!--Collapse Add a comment form END-->
+              <hr>
+              <!--Check if there are comments, if there are none say no comments.-->
+                <% if (mineral.comments.length === 0) { %>
+              <em style="color: grey;">Sem comentários.</em>
+                <% } %>
+              <!--Display comments by looping through them-->
+                <% mineral.comments.forEach(function(comment) { %>
+              <div class="row">
+                <div class="col-md-12">
+                <strong>
+                    <% if (currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                  <!--If the current user owns the comment, change the color of the user icon-->
+                  <span style="color: orange;" class="fa fa-user" aria-hidden="true"></span>
+                    <% } else { %>
+                  <!--Else just display it black-->
+                  <span class="fa fa-user" aria-hidden="true"></span>
+                    <% } %>
+                  <!--Print out the author username-->
+                    <a href="/users/<%=comment.author.id%>"><%= comment.author.username %></a>
+                </strong>
+                <!--Show when the comment was made-->
+                <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                <!--Printing the comment-->
+                <p><%= comment.text %></p>
+                <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
+                  <% if (currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                <!--Edit button used for collapsing the edit comment form-->
+                <a class="btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">
+                  Editar</a>
+                <!--Delete comment button-->
+                <form id="delete-form" action="/minerais/<%= mineral._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
+                  <button class="btn btn-sm btn-danger">Deletar</button>
+                </form>
+                <!--Edit comment form-->
+                <div class="collapse" id="collapseEdit<%= comment._id %>">
+                  <div class="card" style="border-left: 5px solid #ffbb33; margin-top: 15px;">
+                    <h4>Edite seu comentário <span class="fa fa-edit" aria-hidden="true"></span></h4>
+                    <form id="edit-comment-form" action="/minerais/<%= mineral._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                      <div class="form-group">
+                        <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                      </div>
+                      <div class="form-group">
+                        <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form" rows="5" cols="70"><%= comment.text %></textarea>
+                      </div>
+                      <div class="form-group">
+                        <button class="btn btn-warning btn-sm">Editar comentário <span class="fa fa-comments" aria-hidden="true"></span></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                  <% } %>
+                <hr>
+              </div>
+            </div>
+              <% }) %>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+
+
+<div class="container-fluid">
+   <div class="row text-center">
+        <div class="col-9">
+            <h1>MINERAIS NÂO APROVADOS</h1>
+            <div class="row">
+                <% for (var i = 0; i<lista.length; i++) { %>
+                <% if (!lista[i].approved) { %>
+                <div class="col-sm-6 col-md-4">
+                    <div class="card border-secondary mb-3">
+                        <img class="card-img-top img-thumbnail img-index" src="<%=lista[i].image%>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=lista[i].name%></h5>
+                            <p class="card-text"><i class="fas fa-atom"></i><%= lista[i].formula %></p>
+                            <p><%= lista[i].type %></p>
+                            <a href="/minerais/<%= lista[i]._id %>" class="btn btn-primary">Mais informações</a>
+                        </div>
+                    </div>
+                </div>
+                <% }; %>
+                <% }; %>
+            </div>
+         </div>
+   </div>
+</div>
+
+<% include ../partials/footer.ejs %>
