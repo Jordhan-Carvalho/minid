@@ -2,11 +2,7 @@
 
 [_Português_](README.pt-BR.md)
 
-# Getting started
-
-## Requirements
-- NodeJs >= 6.x
-- mongoDB
+## Getting started
 
 To get the Node server running locally:
 
@@ -18,6 +14,11 @@ To get the Node server running locally:
 ```bash
 - npm run dev to start the local server
 ```
+
+## Requirements
+- NodeJs >= 6.x
+- mongoDB
+
 
 
 # Code Overview
