@@ -8,11 +8,11 @@ To get the Node server running locally:
 
 - Clone this repo
 ```bash
-- npm install to install all required dependencies
+- npm install (to install all required dependencies)
 ```
 - Install MongoDB ([instructions](https://docs.mongodb.com/manual/installation/#tutorials)) and run it by executing `mongod`
 ```bash
-- npm run dev to start the local server
+- npm run dev (to start the local server)
 ```
 
 ## Requirements
