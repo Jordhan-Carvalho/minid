@@ -11,7 +11,7 @@ Para obter o servidor Node funcionando localmente:
 ```bash
 - npm install (para instalar todas as Dependências)
 ```
-- Instalar MongoDB ([instruções](https://docs.mongodb.com/manual/installation/#tutorials)) para executa-lo digitar `mongod`
+- Instalar MongoDB ([instruções](https://docs.mongodb.com/manual/installation/#tutorials)) para executa-lo, digitar `mongod`
 ```bash
 - npm run dev (para iniciar o servidor local)
 ```
