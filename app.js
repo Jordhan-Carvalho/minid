@@ -13,7 +13,7 @@ var express     = require("express"),
     methodOverride = require("method-override"),
     moment = require("moment");
     
-    
+// Only used for local dev, for the .env folder    
 // require('dotenv').config();
 
 // call routes
