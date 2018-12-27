@@ -9,7 +9,7 @@ var express     = require("express"),
     Mineral      = require("./models/mineral"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
-    seedDB      = require("./seeds"),
+    // seedDB      = require("./seeds"), testing Purposes
     methodOverride = require("method-override"),
     moment = require("moment");
     
