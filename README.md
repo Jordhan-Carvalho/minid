@@ -42,8 +42,8 @@ To get the Node server running locally:
 - `app.js` - The entry point to our application. This file defines our express server and connects it to MongoDB using mongoose. It also requires the routes and models we'll be using in the application.
 - `middleware/` - This folder contains middlewares for the routes.
 - `models/` - This folder contains the schema definitions for our Mongoose models.
-- `public/` - This folder contains all the css and js used on the front-end.
-- `routes/` - This folder contains the route definitions for our API.
+- `public/` - This folder contains all the css and part of the js used on the front-end.
+- `routes/` - This folder contains the route definitions for our APP.
 - `views/` - This folder contains all the front-end and embedded JS templates (ejs) for the app.
 
 
@@ -55,5 +55,4 @@ NOTE: Do not forget to set the env variables.
 - CLOUDINARY_API_SECRET (image upload)
 - GMAILPW (sending recovery email)
 
-In production env, it is not safe to keep the ids and secrets in a file, so you need to set it up via commandline. If you are using heroku checkout how environment variables are set here.
-
+In production env, it is not safe to keep the ids and secrets in a file, so you need to set it up via commandline. If you are using heroku checkout how environment variables are set.
