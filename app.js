@@ -14,7 +14,7 @@ var express     = require("express"),
     moment = require("moment");
     
     
-require('dotenv').config();
+// require('dotenv').config();
 
 // call routes
 var commentRoutes    = require("./routes/comments"),
