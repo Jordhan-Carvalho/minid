@@ -189,6 +189,27 @@ cloudinary.uploader.upload(req.file.path, function(result) {
    var image2 = req.body.image2;
    var image3 = req.body.image3;
    var formula = req.body.formula;
+//   individual weight
+   var xFunc = (mpcol,mpple, mprel, mphab, mpcle, mpbir, mpext, mpsig) => {return 0.95/(mpcol+mpple+mprel+mphab+mpcle+mpbir+mpext+mpsig) };
+   var x = xFunc(parseFloat(req.body.pmicro.mpcol),
+   parseFloat(req.body.pmicro.mpple),
+   parseFloat(req.body.pmicro.mprel),
+   parseFloat(req.body.pmicro.mphab),
+   parseFloat(req.body.pmicro.mpcle),
+   parseFloat(req.body.pmicro.mpbir),
+   parseFloat(req.body.pmicro.mpext),
+   parseFloat(req.body.pmicro.mpsig)
+   );
+   var pcol = req.body.pmicro.mpcol*x;
+   var pple = req.body.pmicro.mpple*x;
+   var prel = req.body.pmicro.mprel*x;
+   var phab = req.body.pmicro.mphab*x;
+   var pcle = req.body.pmicro.mpcle*x;
+   var pbir = req.body.pmicro.mpbir*x;
+   var pext = req.body.pmicro.mpext*x;
+   var psig = req.body.pmicro.mpsig*x;
+   var pmicro = { pcol: pcol, pple:pple, prel:prel, phab:phab, pcle:pcle, pbir:pbir, pext:pext, psig:psig };
+//   end
    var description = req.body.description;
    var reference = req.body.reference;
    var video = req.body.video;
@@ -204,7 +225,7 @@ cloudinary.uploader.upload(req.file.path, function(result) {
    var crossedlight = req.body.crossedlight;
    
    var newMineral = {name:name, image:image, imageId:imageId, description:description, reference:reference, distinfeat:distinfeat, associatemineral:associatemineral, mineralclass:mineralclass,
-   author:author, formula:formula, image2:image2, image3:image3, macro:macro, planelight:planelight, crossedlight:crossedlight, video:video};
+   author:author, formula:formula, image2:image2, image3:image3, macro:macro, planelight:planelight, crossedlight:crossedlight, video:video, pmicro:pmicro};
   Mineral.create(newMineral, function(err,novomineral){
      if (err) {
          req.flash("error",err);

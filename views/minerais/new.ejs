@@ -13,10 +13,10 @@
                 <input type="file" id="image" name="image" accept="image/*" required>
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Link Foto micro PPL" name="image2">
+                <input class="form-control" type="text" placeholder="Link Foto 2" name="image2">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Link Foto micro XPL" name="image3">
+                <input class="form-control" type="text" placeholder="Link Foto 3" name="image3">
             </div>
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Fórmula" name="formula" required>
@@ -323,16 +323,106 @@
             <div class="form-group">
                 <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
             </div>
+
             
-            <div class="form-group">
-                <textarea  placeholder="Nome da Referência" class="form-control rounded-0" rows="1" name="reference[name]" ></textarea>
-            </div>
-            <div class="form-group">
-                <textarea class="form-control rounded-0" placeholder="Link da Referência" rows="1" name="reference[link]"></textarea>
-            </div>
+            <h4>IMPORTÂNCIA DA CARACTERÍSTICA NA IDENTIFICAÇÃO DO MINERAL EM SEÇÃO DELGADA</h4>
+                <div class="form-group">
+                    <label for="formControlmpcol">Importância - Cor</label>
+                    <select class="form-control" id="formControlmpcol" name="pmicro[mpcol]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmpple">Importância - Pleocroísmo</label>
+                    <select class="form-control" id="formControlmpple" name="pmicro[mpple]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmprel">Importância - Relevo</label>
+                    <select class="form-control" id="formControlmprel" name="pmicro[mprel]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmphab">Importância - Hábito</label>
+                    <select class="form-control" id="formControlmphab" name="pmicro[mphab]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmpcle">Importância - Clivagem</label>
+                    <select class="form-control" id="formControlmpcle" name="pmicro[mpcle]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmpbir">Importância - Birrefringência</label>
+                    <select class="form-control" id="formControlmpbir" name="pmicro[mpbir]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmpext">Importância - Extinção</label>
+                    <select class="form-control" id="formControlmpext" name="pmicro[mpext]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlmpsig">Importância - Caráter e sinal  ótico</label>
+                    <select class="form-control" id="formControlmpsig" name="pmicro[mpsig]" required>
+                      <option disabled selected value> -- selecione uma opção -- </option>
+                      <option value="1">Baixa</option>    
+                      <option value="1.5">Média</option>
+                      <option value="2">Alta</option>
+                      <option value="2.5">Característica Diagnóstica</option>
+                    </select>
+                </div>
+            
+            
+            
+            
+            
             <div class="form-group " style="width:45%; margin: 0 auto;">
                 <button class="btn btn-primary btn-block">Enviar!</button>
             </div>    
+            
+            
+
+                
+     
+            
+            
+            
+            
         </form>
         <a href="/minerais">Voltar</a>
         </div>
