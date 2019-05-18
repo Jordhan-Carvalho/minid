@@ -33,7 +33,7 @@ To get the Node server running locally:
 - [ejs](https://github.com/tj/ejs) - Embedded JavaScript templates for node.
 - [moment](https://github.com/moment/moment) - JS date library for parsing, validating, manipulating, and formatting dates.
 - [mongoose](https://github.com/Automattic/mongoose) - For modeling and mapping MongoDB data to javascript 
-- [multer](https://github.com/expressjs/multer) - Image uploading.
+- [multer](https://github.com/expressjs/multer) - Image upload.
 - [nodemailer](https://github.com/nodemailer/nodemailer) - Sending recovery password emails.
 - [passport](https://github.com/jaredhanson/passport) - For handling user authentication.
 
