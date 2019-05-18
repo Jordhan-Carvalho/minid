@@ -26,16 +26,16 @@ To get the Node server running locally:
 ## Dependencies
 
 - [async](https://github.com/caolan/async) - Powerful functions for working with asynchronous JavaScript. 
-- [body-parser](https://github.com/expressjs/body-parser) - Node.js body parsing middleware
-- [cloudinary](https://cloudinary.com/) - For image uploading
-- [connect-flash](https://github.com/jaredhanson/connect-flash) - Flashing messages
-- [expressjs](https://github.com/expressjs/express) - The server for handling and routing HTTP requests
-- [ejs](https://github.com/tj/ejs) - Embedded JavaScript templates for node
+- [body-parser](https://github.com/expressjs/body-parser) - Node.js body parsing middleware.
+- [cloudinary](https://cloudinary.com/) - For image uploading.
+- [connect-flash](https://github.com/jaredhanson/connect-flash) - Flashing messages.
+- [expressjs](https://github.com/expressjs/express) - The server for handling and routing HTTP requests.
+- [ejs](https://github.com/tj/ejs) - Embedded JavaScript templates for node.
 - [moment](https://github.com/moment/moment) - JS date library for parsing, validating, manipulating, and formatting dates.
 - [mongoose](https://github.com/Automattic/mongoose) - For modeling and mapping MongoDB data to javascript 
 - [multer](https://github.com/expressjs/multer) - Image uploading.
 - [nodemailer](https://github.com/nodemailer/nodemailer) - Sending recovery password emails.
-- [passport](https://github.com/jaredhanson/passport) - For handling user authentication
+- [passport](https://github.com/jaredhanson/passport) - For handling user authentication.
 
 ## Application Structure
 
